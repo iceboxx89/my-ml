@@ -10,16 +10,19 @@ m = length(y); % number of training examples
 % You need to return the following variables correctly 
 J = 0;
 grad = zeros(size(theta));
-
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta.
 %               You should set J to the cost.
 %               Compute the partial derivatives and set grad to the partial
 %               derivatives of the cost w.r.t. each parameter in theta
+hypothesis = sigmoid((X * theta));
+reg_ = (lambda/m * theta);
+% adding the last term lambda/(2*m) * sum(theta[2...n] .^ 2) which is the regularization factor
+J = 1/m * ((-y' * log(hypothesis)) - ((1-y)' * log(1-hypothesis))) + lambda/(2*m) * sum( theta(2:length(theta)).^2 );
 
-
-
-
+% calculate the gradient descent normally, then add the regularization factor to the elements
+grad = 1/m * X' * (hypothesis - y);
+grad(2:size(grad)) = grad(2:size(grad)) + lambda/m * theta(2:size(grad));
 
 
 % =============================================================
