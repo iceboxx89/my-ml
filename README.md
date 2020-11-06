@@ -9,5 +9,5 @@
 2. Cost, gradientDescent and Predictions for logictic regresstion with regularization
 
 ### Ex3
-Multi Class Classification using OneVsAll classifier
-3 Layer forward propagating neural network for classification of hand written numbers
+1. Multi Class Classification using OneVsAll classifier
+2. 3 Layer forward propagating neural network for classification of hand written numbers
